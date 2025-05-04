@@ -1,8 +1,6 @@
 # custom pokedex
 ---
 
-
-
 ## Base Goal
 - create a simple webapp that displays the custom pokedex
 - utilize an online api to pull information

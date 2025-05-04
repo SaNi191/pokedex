@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %} Pokedex:{{name}} {% endblock %}
+{% block title %} Pokedex - {{name | caesar_shift(1)}} {% endblock %}
 
 {% block content %} 
     <h1> Entry for {{name}} here!</h1>
 
     <div>
-        <h2>{{name}} stats:</h2>
+        <h2>Stats:</h2>
         <ul>
             {% for stat in stats %}
             <li> <b>{{stat}}</b>: 
@@ -22,6 +22,11 @@
             </li> 
             {% endfor %}
         </ul>
+    </div>
+
+    <div>
+        <h2>Ability:</h2>
+        <p>{{name | poke_ability(0)|capitalize()}}:{{name | poke_ability(1)}}</p>
     </div>
 {% endblock %}
 
