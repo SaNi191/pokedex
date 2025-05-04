@@ -1,5 +1,5 @@
 #__init__.py indicates directory is a python package
-from flask import Flask, render_template
+from flask import Flask, render_template, flash
 from pokeapi import get_pokemon, get_stats, get_ability
 
 app = Flask(
@@ -21,13 +21,19 @@ def rankings():
 # creating route for individual dex entries
 @app.route('/pokedex/<name>')
 def pokedex(name = "base"):
-    if name == 'base':
-        return render_template('menu.html')
+    
     
     poke_info = get_pokemon(name)
-    poke_stats = get_stats(name)
 
+    # poke_info will be false if name is not a valid pokemon
+    if name == 'base':
+        return render_template('menu.html')
+    elif not poke_info:
+        flash('Invalid Pokemon!')
+        return render_template('menu.html')
     
+    # get stats if pokemon is valid
+    poke_stats = get_stats(name)
 
     # using poke_info['name'] fixes id values, passing render_template arguments
     return render_template('dex.html', name = poke_info['name'].capitalize(), stats = poke_stats)
