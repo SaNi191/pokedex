@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %} Pokedex:{{name}} {% endblock %}
+
+{% block content %} 
+    <h1> Entry for {{name}} here!</h1>
+
+    <div>
+        <h2>{{name}} stats:</h2>
+        <ul>
+            {% for stat in stats %}
+            <li> <b>{{stat}}</b>: 
+                <b 
+                {% if stats[stat] > 80 %} 
+                style="color:red" 
+                {% elif stats[stat] > 40 %}
+                style="color:rgb(186, 141, 59)"
+                {% else %}
+                style="color:darkgreen"
+                {% endif %}
+                >{{stats[stat]}} 
+                </b>
+            </li> 
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
