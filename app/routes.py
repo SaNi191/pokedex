@@ -1,5 +1,5 @@
 from . import app
-from pokeapi import *
+from .utils.pokeapi import *
 from flask import render_template, flash
 
 @app.route('/')
@@ -12,15 +12,16 @@ def rankings():
 
 # creating route for individual dex entries
 @app.route('/pokedex/<name>')
-def pokedex(name = "base"):
+def pokedex(name = "default"):
+    if name == 'default':
+        return render_template('menu.html')
     
-    
+
     poke_info = get_pokemon(name)
 
     # poke_info will be false if name is not a valid pokemon
-    if name == 'base':
-        return render_template('menu.html')
-    elif not poke_info:
+    
+    if not poke_info:
         flash('Invalid Pokemon!')
         return render_template('menu.html')
     
