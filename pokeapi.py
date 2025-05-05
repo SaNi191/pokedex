@@ -19,7 +19,11 @@ def get_stats(name):
 
 
 def get_ability(name):
-    result = get_pokemon(name)['abilities']
+    result = get_pokemon(name)
+    if result:
+        result = result['abilities']
+    else:
+        return False
     ability_result = requests.get(result[0]['ability']['url']).json()
     for entry in ability_result['effect_entries']:
         if entry['language']['name'] == 'en':

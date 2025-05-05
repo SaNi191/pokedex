@@ -174,3 +174,5 @@ cython_debug/
 .pypirc
 
 flask_notes.txt
+instance
+instance/*
