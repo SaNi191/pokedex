@@ -1,6 +1,16 @@
 from flask_sqlalchemy import SQLAlchemy
 from . import db
 
+class Ability(db.Model):
+    ability_id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(20))
+    desc = db.Column(db.String(100))
+    is_hidden = db.Column(db.Boolean)
+
+
+class Type(db.Model):
+    name = db.Column(db.String(10))
+
 
 class Pokemon(db.Model):
     dex_number = db.Column(db.Integer, primary_key=True)

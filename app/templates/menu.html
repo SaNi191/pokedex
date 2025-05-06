@@ -1,6 +1,12 @@
 {% extends 'base.html'%}
 {% block title %}PokeDex Main Menu {% endblock %}
-{% block content %}
-<input type = "text" placeholder="Search"><button>Search</button>
 
+
+{% block content %}
+<h1>PokeDex Menu</h1>
+<form method='GET'>
+<input type = 'text' placeholder="Search" name = 'name' id = 'name' >
+<button type = 'submit'>Search</button>
+
+</form>
 {% endblock %}
