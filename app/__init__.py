@@ -4,18 +4,21 @@ from app.utils.pokeapi import get_ability
 from flask_sqlalchemy import SQLAlchemy
 
 
+def create_app():
+    app = Flask(
+        __name__, 
+        template_folder='templates'
+    )
+    print(__name__)
+    app.config.from_pyfile('../config.py')
+    db = SQLAlchemy()
+    db.init_app(app)
 
-app = Flask(
-    __name__, 
-    template_folder='templates'
-)
+    from . import routes
+    from . import filters
 
-app.config.from_pyfile('../config.py')
-db = SQLAlchemy()
-db.init_app(app)
+    return app
 
-from . import routes
-from . import filters
 
 
 
