@@ -5,11 +5,14 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 def create_app():
+    global app
     app = Flask(
         __name__, 
         template_folder='templates'
     )
-    print(__name__)
+
+    #print(__name__)
+
     app.config.from_pyfile('../config.py')
     db = SQLAlchemy()
     db.init_app(app)

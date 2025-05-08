@@ -13,6 +13,12 @@
         </nav>
     </div>
 
+    <form method='GET' action = "{{ url_for('menu') }}">
+        <input type = 'text' placeholder="Search" name = 'name' id = 'name' >
+        <button type = 'submit'>Search</button>
+        
+    </form>
+
     {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for msg in messages %}
@@ -21,6 +27,6 @@
         {% endif %}
     {% endwith %}
 
-    {% block content%} Hello! {% endblock %}
+    {% block content%}{% endblock %}
 
 </body>

@@ -20,8 +20,9 @@ def caesar_shift(txt, num=1):
 
         ind = alphabet.index(letter)
         
-        while ind + num > 26:
+        while ind + num >= 26:
             ind -= 26
+
         char = alphabet[ind + num]
 
         
