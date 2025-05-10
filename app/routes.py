@@ -1,15 +1,20 @@
+from flask import render_template, flash, redirect, url_for, request
+
 from . import app
 from .utils.pokeapi import *
-from flask import render_template, flash, redirect, url_for, request
+
 
 @app.route('/')
 def home():
     return render_template('home.html')
 
+# to be implemented later using a database and model training
 @app.route('/rankings')
 def rankings():
     return render_template('rankings.html')
 
+# creating route for menu, provides functionality to search for pokemon
+# and redirect to the individual dex entry
 @app.route('/dex_menu', methods=['GET'])
 def menu():
     if request.method == 'GET':
