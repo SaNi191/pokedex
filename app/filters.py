@@ -34,7 +34,7 @@ def image_path(txt):
     response = get_sprite(txt)
     
     if not response:
-        return None
+        return 'images/missing.png'
     
     # save image to static folder
     with open(img_path, 'wb') as f:
