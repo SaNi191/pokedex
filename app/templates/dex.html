@@ -3,6 +3,9 @@
 
 {% block content %} 
     <h1> Entry for {{name}} here!</h1>
+    <div>
+        <img src="{{url_for('static', filename = name | image_path() )}}" alt="Image of {{name}}">
+    </div>
 
     <div>
         <h2>Stats:</h2>
