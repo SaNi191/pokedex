@@ -176,3 +176,5 @@ cython_debug/
 flask_notes.txt
 instance
 instance/*
+app/static/images/*
+app/static/images
