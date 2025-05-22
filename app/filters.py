@@ -1,6 +1,5 @@
 import os
 import requests
-
 from . import app
 from app.utils.pokeapi import get_ability, get_sprite
 
