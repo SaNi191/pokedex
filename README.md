@@ -9,3 +9,10 @@
 ## Further Features
 - provide recommendations to fill in gaps of a given team (type coverage)
 - move recommendations, ev training recommendations
+
+
+## How to Run
+```
+pip install -r requirements.txt
+python3 run.py
+```
